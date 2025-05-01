@@ -25,6 +25,6 @@ Manual deployment to Kubernetes is error-prone and hard to scale. GitOps solves 
 (Coming soon)
 
 ## 🧠 Lessons Learned
-(To be filled as you build it!)
+(coming up)
 
 ---
