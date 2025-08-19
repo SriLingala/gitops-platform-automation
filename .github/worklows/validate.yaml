@@ -1,0 +1,20 @@
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  kustomize-dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.29.0'
+      - name: Validate manifests with kustomize
+        working-directory: ./manifests/nginx
+        run: |
+          kubectl kustomize .
+          # server-side dry run requires a cluster; for CI, at least ensure kustomize builds
